@@ -21,7 +21,7 @@ class Pyramids {
     }
 }
 
-public class PyramidMain {
+public class pyramid {
    public static void main(String[] args) {
     Pyramids pyramids = new Pyramids();
     pyramids.centerPyramid(5);
