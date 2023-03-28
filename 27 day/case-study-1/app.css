@@ -1,12 +1,19 @@
-html, body {
+html,
+body {
     width: 98vw;
     height: 93vh;
+}
+
+h2,
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
     width: 100%;
     height: 50px;
 }
+
 nav {
     background-color: #9747FF;
     height: 100%;
@@ -25,7 +32,7 @@ nav {
 
 .menu-container {
 
-    flex-basis:20%;
+    flex-basis: 20%;
 
     display: flex;
     justify-content: space-evenly;
@@ -41,7 +48,7 @@ nav {
 
 .ad-content {
 
-    flex : 7;
+    flex: 7;
 
     border: 1px solid black;
     background-image: url('https://www.planetcompliance.com/wp-content/uploads/2021/05/Banking.jpg');
@@ -53,10 +60,11 @@ nav {
     justify-content: center;
     align-items: center;
 }
+
 .login-content {
     border: 1px solid black;
 
-    flex : 3;
+    flex: 3;
 
     display: flex;
     flex-direction: column;
@@ -64,11 +72,26 @@ nav {
     justify-content: center;
     align-items: center;
 }
+
 input {
     font-size: 1.8em;
     margin-top: 1em;
+    text-align: center;
 }
+
 .login-icon {
     width: 80px;
     height: 80px;
+
+    /* visibility: hidden; */
+    display: none;
+}
+
+.btn {
+    background-color: #9747FF;
+    color: white;
+    font-weight: 300;
+    border-radius: 25px;
+    border: 1px solid #9747FF;
+    padding: 16px;
 }
