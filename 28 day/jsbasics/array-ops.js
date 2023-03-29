@@ -8,15 +8,15 @@ console.log('Sorted')
 console.log(arr.sort())
 
 let str = ''
-for (let num of arr) {
+for(let num of arr) {
     str += num;
 }
 
 console.log(str)
 
-arr.forEach(el => console.log(el))
+arr.forEach( el => console.log(el) )
 
-const filtered = arr.filter(el => el >= 3)
+const filtered = arr.filter(el => el >= 3 )
 console.log(filtered)
 
 console.log(arr)
