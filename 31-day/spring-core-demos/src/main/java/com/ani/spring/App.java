@@ -1,5 +1,6 @@
 package com.ani.spring;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 
 import org.springframework.context.ApplicationContext;
@@ -7,6 +8,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ani.spring.config.AppConfig;
+import com.ani.spring.excel.XLFormatter;
+import com.ani.spring.excel.XLManager;
 import com.ani.spring.excel.XlConfig;
 import com.ani.spring.util.FileChecker;
 import com.ani.spring.util.FileUtil;
@@ -49,9 +52,20 @@ public final class App {
 
         String[] names = ctx.getBeanDefinitionNames();
         System.out.println(Arrays.toString(names));
+
+        XLManager manager = ctx.getBean(XLManager.class);
+        System.out.println(manager);
+        manager.configXL();
+    }
+
+    public static void somethingIntresting() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(XlConfig.class, AppConfig.class);
+        XLFormatter formatter = ctx.getBean(XLFormatter.class);
+        String formattedOutput = formatter.formatData();
+        System.out.println(formattedOutput);
     }
 
     public static void main(String[] args) {
-        withSpringAnnotationConfig();
+        somethingIntresting();
     }
 }
