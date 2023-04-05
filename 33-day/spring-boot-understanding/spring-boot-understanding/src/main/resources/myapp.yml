@@ -8,3 +8,6 @@ testing:
     name: abc
     strategy: agile
     bugcolor: red
+
+server:
+  port: 8990

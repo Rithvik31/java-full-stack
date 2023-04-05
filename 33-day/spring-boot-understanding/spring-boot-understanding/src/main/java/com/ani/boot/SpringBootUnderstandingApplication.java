@@ -1,5 +1,6 @@
 package com.ani.boot;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +19,7 @@ public class SpringBootUnderstandingApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringBootUnderstandingApplication.class, args);
 
-		CarService service =  ctx.getBean(CarService.class);
+		CarService service = ctx.getBean(CarService.class);
 		service.createNewCar(10L, "abc", "lmn");
 	}
 }
