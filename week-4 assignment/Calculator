@@ -1,0 +1,49 @@
+import java.util.Scanner;
+class Main{
+	public static int add(int num1, int num2){
+	    return num1+num2;
+	}
+	public static void main(String[] args){
+	    Scanner sc = new Scanner(System.in);
+
+	    //try{
+	        int num1 = sc.nextInt();
+	        // if((num1 >100 ) || (num1 <10)){
+	       //       System.out.println("Bad Number");
+	       //       System.exit(0);
+	       //}
+	   // }catch (InputMismatchException e){
+	   //      System.out.println("Bad Number");
+	   // }
+	   // try{
+	       int num2 = sc.nextInt();
+	       // if((num2<-10) || (num2>10)){
+	       //   System.out.println("Bad Number");
+	       //   System.exit(0);
+	       // }
+	       //}catch (InputMismatchException e){
+	       //   System.out.println("Bad Number");
+	       //}
+
+	       char op = sc.next().charAt(0);
+	       // System.out.println(op);
+	       // if(op == '+'){
+	           int ans = 0;
+
+	       // }
+	       switch(op){
+	           case '+':System.out.println(add(num1,num2));;
+	           break;
+	           case '-' : ans = num1 -  num2;
+	           System.out.println(ans);
+	           break;
+	           case '*' : ans = num1*num2;
+	           System.out.println(ans);
+	           break;
+	           case '/' : ans = num1/num2;
+	           System.out.println(ans);
+	           break;
+	           default : System.out.println("Bad operation");
+	           }
+	       }
+	       }
