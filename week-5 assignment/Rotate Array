@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.util.Arrays;
+class Main{
+    public static int[] rotateArr(int arr[], int position){
+        int[] rotatedArr = new int[arr.length];
+        System.arraycopy(arr, position, rotatedArr, 0, arr.length - position);
+        System.arraycopy(arr, 0, rotatedArr, arr.length - position, position);
+        return rotatedArr;
+    }
+
+    public static void print(int arr[]) {
+        for (int i=0; i< arr.length; i++) {
+            if (i>0) {
+                System.out.print(",");
+            }
+            System.out.print(arr[i]);
+        }
+    }
+
+    public static void check() throws Exception {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        int position = sc.nextInt();
+        try{
+            int[] array = Arrays.stream(str.split(",")).mapToInt(Integer::parseInt).toArray();
+
+            if (position < 0 || position > array.length) {
+                throw new Exception("Invalid index");
+            }
+            for (int i : array) {
+                if(i<0 || i>9) {
+                    throw new Exception("Bad Array");
+                }
+            }
+
+            int[] rotateArr = rotateArr(array, position);
+            print(rotateArr);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("Enter Number Only");
+        }
+
+    }
+
+    public static void main(String[] args){
+        try {
+            check();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
