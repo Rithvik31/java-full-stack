@@ -20,9 +20,9 @@ public class ReactiveMongoDemoApplication {
 
 		repository.save(item)
 				.doOnNext( savedItem ->  { 
-					System.out.println("🔥 Save Completed 🔥"); 
+					System.out.println(" Save Completed "); 
 					System.out.println(savedItem); 
-					System.out.println("👉 One");
+					System.out.println(" One");
 				} )
 				.doOnError(err -> System.out.println(err))
 				.subscribe();
@@ -30,13 +30,13 @@ public class ReactiveMongoDemoApplication {
 
 		repository.findAll()
 				.doOnNext( itm ->  { 
-					System.out.println("🔥 FindAll Completed 🔥"); 
+					System.out.println("FindAll Completed "); 
 					System.out.println(itm); 
 				})
 				.doOnError( err -> System.out.println(err) )
 				.subscribe();
 
-		System.out.println("👉 Two");
+		System.out.println(" Two");
 
 		latch.await();
 	}
