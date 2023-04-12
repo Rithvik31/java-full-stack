@@ -32,4 +32,10 @@ public class BankAccountServiceImpl implements BankAccountService{
                             .map(ba -> converter.toDto(ba))
                             .collect(Collectors.toList());
     }
+
+    @Override
+    public Collection<BankAccountDto> listAllAccounts() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listAllAccounts'");
+    }
 }
