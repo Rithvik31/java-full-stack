@@ -10,4 +10,6 @@ public interface BankAccountService {
     Integer createNewAccount(BankAccountDto account);
 
     Collection<BankAccountDto> findAll();
+
+    Collection<BankAccountDto> listAllAccounts();
 }
