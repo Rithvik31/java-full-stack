@@ -1,0 +1,41 @@
+import java.util.Scanner;
+class Main{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String input = sc.nextLine();
+	    String[] digitsArray = input.split(",");
+	    int[] digits = new int[digitsArray.length];
+	    for(int i =0 ; i < digitsArray.length; i++) {
+	        digits[i] = Integer.parseInt(digitsArray[i]);
+	    }
+	    if(digits[0] == 0) {
+	        System.out.println("Bad Array");
+	        return;
+	    }
+	    int carry = 1;
+	    for(int i = digits.length - 1; i >=0; i--) {
+	        int sum = digits[i] + carry;
+	        if(sum>=10) {
+	            carry = 1;
+	            digits[i] = sum - 10;
+	        } else {
+	            carry = 0;
+	            digits[i] = sum;
+	        }
+	    }
+	    if(carry == 1) {
+	        int[] result = new int[digits.length + 1];
+	        result[0] = 1;
+	        for(int i = 0; i < digits.length; i++) {
+	            result[i+1] = digits[i];
+	        }
+	        digits = result;
+	    }
+	    for(int i = 0; i < digits.length; i++) {
+	        System.out.print(digits[i]);
+	        if(i<digits.length - 1) {
+	            System.out.print(",");
+	        }
+	    }
+	}
+}
