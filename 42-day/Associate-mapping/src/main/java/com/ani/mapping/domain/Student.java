@@ -1,11 +1,12 @@
 package com.ani.mapping.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,15 +14,15 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class ContactDetails {
-    @Id
+public class Student {
+
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String mobile;
-    private String email;
+    @Id
+    private Long stuId;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
+    private String name;
+    private Integer marks;
 
+    @ManyToMany(mappedBy = "students")
+    private List<Course> courses;
 }
