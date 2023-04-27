@@ -1,0 +1,64 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input1 = scanner.nextLine();
+        String input2 = scanner.nextLine();
+
+        String[] strArray1 = input1.split(",");
+        String[] strArray2 = input2.split(",");
+
+        int[] arr1 = new int[strArray1.length];
+        int[] arr2 = new int[strArray2.length];
+
+        for (int i = 0; i < strArray1.length; i++) {
+            arr1[i] = Integer.parseInt(strArray1[i]);
+        }
+
+        for (int i = 0; i < strArray2.length; i++) {
+            arr2[i] = Integer.parseInt(strArray2[i]);
+        }
+
+        if (!isSorted(arr1) || !isSorted(arr2)) {
+            System.out.println("False");
+            return;
+        }
+
+        int[] mergedArray = mergeArrays(arr1, arr2);
+        System.out.println(Arrays.toString(mergedArray).replaceAll("\\[|\\]|\\s",""));
+    }
+
+    private static boolean isSorted(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int[] mergeArrays(int[] arr1, int[] arr2) {
+        int[] mergedArray = new int[arr1.length + arr2.length];
+
+        int i = 0, j = 0, k = 0;
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] <= arr2[j]) {
+                mergedArray[k++] = arr1[i++];
+            } else {
+                mergedArray[k++] = arr2[j++];
+            }
+        }
+
+        while (i < arr1.length) {
+            mergedArray[k++] = arr1[i++];
+        }
+
+        while (j < arr2.length) {
+            mergedArray[k++] = arr2[j++];
+        }
+
+        return mergedArray;
+    }
+}
